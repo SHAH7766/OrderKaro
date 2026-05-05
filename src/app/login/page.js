@@ -31,7 +31,7 @@ export default function LoginPage() {
         <div className={styles.card}>
 
           {/* Logo */}
-          <div className={styles.logoWrap}>
+          <Link href="/" className={styles.logoWrap}>
             <div className={styles.logoBox}>
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                 <circle cx="10" cy="4"  r="1.2" fill="white" opacity="0.9"/>
@@ -45,7 +45,7 @@ export default function LoginPage() {
               </svg>
             </div>
             <p className={styles.appName}>OrderKro</p>
-          </div>
+          </Link>
 
           <h1 className={styles.heading}>Welcome Back</h1>
           <p  className={styles.sub}>Login to continue ordering</p>

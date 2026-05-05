@@ -4,12 +4,13 @@ import React from 'react';
 import { ShoppingBasket, Search, MapPin, Bell, ShoppingCart } from 'lucide-react';
 import { useSelector } from 'react-redux';
 import { selectCartCount, selectCartTotal } from '../redux/cartSlice';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 
 const Navbar = () => {
   const router = useRouter();
   const cartCount = useSelector(selectCartCount);
   const cartTotal = useSelector(selectCartTotal);
+
 
   return (
     <nav className="hidden md:flex items-center justify-between px-8 py-5 bg-white/70 backdrop-blur-2xl border-b border-white/40 shadow-sm sticky top-0 z-50 transition-all duration-300">

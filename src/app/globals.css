@@ -56,8 +56,143 @@ body {
   100% { transform: translateX(100%); }
 }
 
+@keyframes profile-rise {
+  0% { opacity: 0; transform: translateY(28px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes profile-hero-in {
+  0% { opacity: 0; transform: translateY(-18px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes profile-avatar-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes profile-glow-pulse {
+  0%, 100% { opacity: 0.52; transform: scale(0.94); }
+  50% { opacity: 0.88; transform: scale(1.08); }
+}
+
+@keyframes profile-online-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 200, 95, 0.32), 0 8px 18px rgba(34, 200, 95, 0.36); }
+  50% { box-shadow: 0 0 0 10px rgba(34, 200, 95, 0), 0 12px 24px rgba(34, 200, 95, 0.42); }
+}
+
+@keyframes profile-sheen-slide {
+  0% { transform: translateX(-125%) skewX(-14deg); }
+  100% { transform: translateX(125%) skewX(-14deg); }
+}
+
+@keyframes profile-check-pop {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  45% { transform: scale(1.16) rotate(8deg); }
+}
+
+@keyframes profile-icon-tilt {
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  50% { transform: rotate(-3deg) translateY(-3px); }
+}
+
+@keyframes profile-nav-in {
+  0% { opacity: 0; transform: translateY(18px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes delivery-fade-up {
+  0% { opacity: 0; transform: translateY(22px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes delivery-badge-bob {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-4px) scale(1.03); }
+}
+
+@keyframes delivery-pill-pulse {
+  0%, 100% { box-shadow: 0 10px 24px rgba(0, 169, 203, 0.08); }
+  50% { box-shadow: 0 14px 28px rgba(0, 169, 203, 0.18); }
+}
+
+@keyframes delivery-processing-glow {
+  0%, 100% { box-shadow: 0 16px 38px rgba(16,38,40,0.2); }
+  50% { box-shadow: 0 20px 44px rgba(16,38,40,0.3); }
+}
+
+@keyframes delivery-clock-tick {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(8deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-8deg); }
+}
+
 .animate-slide-up { animation: slide-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
 .animate-slide-down { animation: slide-down 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
 .animate-float { animation: float 3s ease-in-out infinite; }
 .animate-progress { animation: progress-fill 1.2s cubic-bezier(0.16, 1, 0.3, 1) backwards; }
 .animate-shimmer { animation: shimmer 2s infinite linear; }
+
+.profile-hero { animation: profile-hero-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.profile-title { animation: profile-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both; }
+.profile-avatar-wrap { animation: profile-rise 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both; }
+.profile-avatar { animation: profile-avatar-float 4.5s ease-in-out infinite; }
+.profile-glow { animation: profile-glow-pulse 3.8s ease-in-out infinite; }
+.profile-online { animation: profile-online-pulse 2.2s ease-in-out infinite; }
+.profile-name { animation: profile-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both; }
+.profile-status { animation: profile-rise 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.34s both; }
+.profile-sheen { animation: profile-sheen-slide 4.5s ease-in-out infinite; }
+.profile-card { animation: profile-rise 0.75s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.profile-card-delay-1 { animation-delay: 0.18s; }
+.profile-card-delay-2 { animation-delay: 0.28s; }
+.profile-card-delay-3 { animation-delay: 0.38s; }
+.profile-card-delay-4 { animation-delay: 0.48s; }
+.profile-icon-tile { animation: profile-icon-tilt 4s ease-in-out infinite; }
+.profile-check { animation: profile-check-pop 2.8s ease-in-out infinite; }
+.profile-verified { box-shadow: 0 0 0 1px rgba(0, 169, 203, 0.04), 0 8px 18px rgba(0, 169, 203, 0.08); }
+.profile-language-icon { animation: profile-icon-tilt 4.3s ease-in-out infinite reverse; }
+.profile-nav-item { animation: profile-nav-in 0.65s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+.delivery-card { animation: delivery-fade-up 0.65s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.delivery-card-delay-1 { animation-delay: 0.16s; }
+.delivery-card-delay-2 { animation-delay: 0.24s; }
+.delivery-card-delay-3 { animation-delay: 0.32s; }
+.delivery-card-delay-4 { animation-delay: 0.4s; }
+.delivery-card-delay-5 { animation-delay: 0.48s; }
+.delivery-badge { animation: delivery-badge-bob 3.2s ease-in-out infinite; }
+.delivery-pill { animation: delivery-pill-pulse 2.8s ease-in-out infinite; }
+.delivery-orb { animation: profile-icon-tilt 4s ease-in-out infinite; }
+.delivery-processing { animation: delivery-processing-glow 3s ease-in-out infinite; }
+.delivery-clock { animation: delivery-clock-tick 1.6s ease-in-out infinite; }
+.delivery-row { animation: delivery-fade-up 0.55s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.delivery-button { animation: delivery-fade-up 0.65s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.delivery-status-panel { animation: delivery-fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.38s both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-hero,
+  .profile-title,
+  .profile-avatar-wrap,
+  .profile-avatar,
+  .profile-glow,
+  .profile-online,
+  .profile-name,
+  .profile-status,
+  .profile-sheen,
+  .profile-card,
+  .profile-icon-tile,
+  .profile-check,
+  .profile-language-icon,
+  .profile-nav-item,
+  .delivery-card,
+  .delivery-badge,
+  .delivery-pill,
+  .delivery-orb,
+  .delivery-processing,
+  .delivery-clock,
+  .delivery-row,
+  .delivery-button,
+  .delivery-status-panel {
+    animation: none !important;
+  }
+}

@@ -26,6 +26,7 @@ import {
   LogOut,
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import Navbar from '../../components/Navbar';
 
 const quickActions = [
   { label: 'Support', icon: Headset, tone: 'text-cyan-600 bg-cyan-50' },
@@ -72,6 +73,8 @@ export default function DriverHomePage() {
   const router = useRouter();
 
   return (
+    <>
+    <Navbar />
     <main className="min-h-screen bg-[linear-gradient(180deg,#edf7f8_0%,#f7fbfb_42%,#eef8f9_100%)] text-slate-950">
       <div className="mx-auto min-h-screen max-w-[1280px] lg:grid lg:grid-cols-[286px_1fr] lg:gap-7 lg:px-8 lg:py-8">
         <aside className="sticky top-8 hidden h-[calc(100vh-4rem)] flex-col overflow-hidden rounded-[2rem] bg-white p-5 shadow-[0_24px_70px_rgba(14,71,100,0.12)] ring-1 ring-white/80 lg:flex">
@@ -440,5 +443,6 @@ export default function DriverHomePage() {
         </div>
       </nav>
     </main>
+    </>
   );
 }

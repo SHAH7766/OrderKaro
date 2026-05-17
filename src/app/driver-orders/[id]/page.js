@@ -17,6 +17,7 @@ import {
   WalletCards,
 } from 'lucide-react';
 import { useParams, useRouter } from 'next/navigation';
+import Navbar from '../../../components/Navbar';
 
 const orderLookup = {
   'ORD-2941': {
@@ -64,6 +65,8 @@ export default function DriverOrderDetailPage() {
   const order = orderLookup[orderId] || orderLookup['ORD-2941'];
 
   return (
+    <>
+    <Navbar />
     <main className="min-h-screen bg-[linear-gradient(180deg,#edf7f8_0%,#f8fbfb_46%,#eef8f9_100%)] px-4 py-5 text-slate-950 lg:px-8 lg:py-8">
       <div className="mx-auto max-w-[980px]">
         <button type="button" onClick={() => router.push('/driver-orders')} className="mb-5 flex h-11 items-center gap-2 rounded-2xl bg-white px-4 text-sm font-black text-[#087ea0] shadow-sm">
@@ -159,5 +162,6 @@ export default function DriverOrderDetailPage() {
         </section>
       </div>
     </main>
+    </>
   );
 }

@@ -1,12 +1,12 @@
 'use client';
 
 import DriverDashboard from '../../components/DriverDashboard';
-import Navbar from '../../components/Navbar';
+import DriverHeader from '../../components/DriverHeader';
 
 export default function DriverPage() {
   return (
     <>
-      <Navbar />
+      <DriverHeader />
       <DriverDashboard />
     </>
   );

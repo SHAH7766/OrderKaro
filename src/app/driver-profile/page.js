@@ -25,7 +25,7 @@ import {
   WalletCards,
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import Navbar from '../../components/Navbar';
+import DriverHeader from '../../components/DriverHeader';
 
 const sidebarLinks = [
   { label: 'Dashboard', icon: House, href: '/driver-home' },
@@ -115,7 +115,7 @@ export default function DriverProfilePage() {
 
   return (
     <>
-    <Navbar />
+    <DriverHeader />
     <main className="min-h-screen bg-[linear-gradient(180deg,#edf7f8_0%,#f8fbfb_46%,#eef8f9_100%)] text-slate-950">
       <div className="mx-auto min-h-screen max-w-[1280px] lg:grid lg:grid-cols-[286px_1fr] lg:gap-7 lg:px-8 lg:py-8">
         <DriverSidebar router={router} />

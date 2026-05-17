@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import {
-  Bell,
   CheckCircle2,
   CircleDollarSign,
   ClipboardList,
@@ -28,7 +27,7 @@ import {
   Settings,
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import Navbar from '../../components/Navbar';
+import DriverHeader from '../../components/DriverHeader';
 
 const quickActions = [
   { label: 'Support', icon: Headset, tone: 'text-cyan-600 bg-cyan-50' },
@@ -82,7 +81,7 @@ export default function DriverHomePage() {
 
   return (
     <>
-    <Navbar />
+    <DriverHeader />
     <main className="min-h-screen bg-[linear-gradient(180deg,#edf7f8_0%,#f7fbfb_42%,#eef8f9_100%)] text-slate-950">
       <div className="mx-auto min-h-screen max-w-[1280px] lg:grid lg:grid-cols-[286px_1fr] lg:gap-7 lg:px-8 lg:py-8">
         <aside className="sticky top-8 hidden h-[calc(100vh-4rem)] flex-col overflow-hidden rounded-[2rem] bg-white p-4 shadow-[0_24px_70px_rgba(14,71,100,0.12)] ring-1 ring-white/80 lg:flex">
@@ -141,54 +140,7 @@ export default function DriverHomePage() {
           </nav>
         </aside>
 
-        <section className="relative overflow-hidden lg:hidden">
-          <header className="bg-gradient-to-r from-[#c7dde2] via-[#c9d7e5] to-[#ddd3e7] px-4 py-4">
-            <div className="flex items-start justify-between">
-              <div className="flex items-center gap-3">
-              <img
-                src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=160&q=80"
-                alt="Alex"
-                className="h-11 w-11 rounded-full border-2 border-white object-cover shadow-md"
-              />
-              <div>
-                <p className="text-[11px] font-black uppercase tracking-[0.12em] text-[#167f97]">Hello, Alex</p>
-                <div className="mt-1 flex items-center gap-2">
-                  <div className="flex h-6 w-12 items-center rounded-full bg-[#18b98a] p-0.5 shadow-inner">
-                    <div className="ml-auto h-5 w-5 rounded-full bg-white shadow-sm" />
-                  </div>
-                  <span className="text-[11px] font-black uppercase tracking-[0.12em] text-[#0b8d63]">Online</span>
-                </div>
-              </div>
-              </div>
-
-              <button
-                type="button"
-                onClick={() => router.push('/driver-profile')}
-                className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/50 text-[#00a9cb] shadow-[0_10px_24px_rgba(255,255,255,0.18)] transition hover:bg-white/70"
-              >
-                <Bell className="h-5 w-5" strokeWidth={2.2} />
-                <span className="absolute top-3 right-3 h-2 w-2 rounded-full bg-pink-500" />
-              </button>
-            </div>
-
-            <div className="mt-3 flex justify-center lg:hidden">
-              <h1 className="text-[21px] font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#00a9cb] via-[#4388cf] to-[#eb72d0]">
-                ORDERKRO
-              </h1>
-            </div>
-
-          </header>
-
-          <div className="h-[3px] bg-[#1d5f94]" />
-
-          <div className="relative h-[174px] overflow-hidden bg-[#f4f9f9]">
-            <div className="absolute inset-x-0 top-0 h-[144px] bg-gradient-to-r from-[#146d91] via-[#386d9f] to-[#7354ab]">
-              <div className="absolute -bottom-7 left-1/2 h-14 w-[125%] -translate-x-1/2 rounded-[0_0_50%_50%] bg-[#f4f9f9]" />
-            </div>
-          </div>
-        </section>
-
-        <section className="-mt-[124px] px-4 pb-28 lg:mt-0 lg:px-0 lg:pb-0">
+        <section className="px-4 pb-28 pt-5 lg:px-0 lg:pt-0 lg:pb-0">
           <section className="delivery-card mb-7 rounded-[1.75rem] bg-white p-5 shadow-[0_18px_42px_rgba(14,71,100,0.10)] ring-1 ring-white/80 lg:hidden">
             <div className="flex items-center justify-between gap-4">
               <div className="flex items-center gap-3">

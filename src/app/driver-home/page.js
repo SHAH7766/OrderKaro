@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Bell,
   CheckCircle2,
@@ -11,6 +11,7 @@ import {
   Headset,
   History,
   House,
+  Menu,
   Medal,
   Route,
   Fuel,
@@ -45,7 +46,7 @@ const navItems = [
   { label: 'Home', icon: House, active: true },
   { label: 'Orders', icon: ClipboardList },
   { label: 'Payouts', icon: CircleDollarSign },
-  { label: 'Account', icon: UserRound },
+  { label: 'More', icon: Menu },
 ];
 
 const sidebarLinks = [
@@ -75,6 +76,9 @@ function MetricCard({ icon: Icon, label, value, className = '', iconTone = '', t
 
 export default function DriverHomePage() {
   const router = useRouter();
+  const [isMoreOpen, setIsMoreOpen] = useState(false);
+
+  const moreItems = sidebarLinks.filter((item) => !['Dashboard', 'Orders', 'Earnings'].includes(item.label));
 
   return (
     <>
@@ -408,8 +412,8 @@ export default function DriverHomePage() {
                 if (item.label === 'Payouts') {
                   router.push('/driver-earnings');
                 }
-                if (item.label === 'Account') {
-                  router.push('/driver-profile');
+                if (item.label === 'More') {
+                  setIsMoreOpen(true);
                 }
               }}
               className={`delivery-card rounded-[1.2rem] px-2 py-3 text-center transition ${item.active ? 'bg-cyan-50 text-[#08afd0]' : 'text-slate-400'}`}
@@ -421,6 +425,46 @@ export default function DriverHomePage() {
           ))}
         </div>
       </nav>
+
+      {isMoreOpen && (
+        <div className="fixed inset-0 z-[60] bg-slate-950/35 backdrop-blur-[2px] lg:hidden" onClick={() => setIsMoreOpen(false)}>
+          <section
+            className="absolute inset-x-0 bottom-0 rounded-t-[2rem] bg-white px-5 pt-5 pb-6 shadow-[0_-24px_60px_rgba(15,23,42,0.18)]"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="mb-5 flex items-center justify-between">
+              <div>
+                <p className="text-[11px] font-black uppercase tracking-[0.16em] text-[#16879a]">Driver Menu</p>
+                <h2 className="mt-1 text-xl font-black text-slate-950">More options</h2>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsMoreOpen(false)}
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+              >
+                <span className="text-lg font-black leading-none">×</span>
+              </button>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3">
+              {moreItems.map((item) => (
+                <button
+                  key={item.label}
+                  type="button"
+                  onClick={() => {
+                    setIsMoreOpen(false);
+                    router.push(item.href);
+                  }}
+                  className="flex min-h-[58px] items-center gap-3 rounded-2xl bg-[#f8fbfd] px-4 text-left text-sm font-black text-slate-600 ring-1 ring-slate-100 transition active:scale-[0.98]"
+                >
+                  <item.icon className="h-5 w-5 text-[#08afd0]" strokeWidth={2.2} />
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          </section>
+        </div>
+      )}
     </main>
     </>
   );

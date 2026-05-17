@@ -6,6 +6,8 @@ import {
   CheckCircle2,
   CircleDollarSign,
   ClipboardList,
+  CreditCard,
+  FileText,
   Headset,
   House,
   Medal,
@@ -17,7 +19,11 @@ import {
   TimerReset,
   MapPin,
   Bike,
-  Gauge,
+  ShieldCheck,
+  WalletCards,
+  CalendarDays,
+  Settings,
+  LogOut,
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
@@ -40,6 +46,16 @@ const navItems = [
   { label: 'Account', icon: UserRound },
 ];
 
+const sidebarLinks = [
+  { label: 'Dashboard', icon: House, href: '/driver-home', active: true },
+  { label: 'My Profile', icon: UserRound, href: '/driver-profile' },
+  { label: 'Documents', icon: FileText, href: '/driver-documents' },
+  { label: 'Earnings', icon: WalletCards, href: '/driver-earnings' },
+  { label: 'Payouts', icon: CreditCard, href: '/driver-payouts' },
+  { label: 'Orders', icon: ClipboardList, href: '/driver-orders' },
+  { label: 'Settings', icon: Settings, href: '/driver-settings' },
+];
+
 function MetricCard({ icon: Icon, label, value, className = '', iconTone = '', textTone = '' }) {
   return (
     <section className={`delivery-card rounded-[1.75rem] p-5 shadow-[0_18px_42px_rgba(15,63,90,0.10)] ring-1 ring-white/70 ${className}`}>
@@ -57,10 +73,91 @@ export default function DriverHomePage() {
 
   return (
     <main className="min-h-screen bg-[linear-gradient(180deg,#edf7f8_0%,#f7fbfb_42%,#eef8f9_100%)] text-slate-950">
-      <div className="mx-auto min-h-screen max-w-[1240px] lg:grid lg:grid-cols-[430px_1fr] lg:gap-8 lg:px-8 lg:py-8">
-        <section className="relative overflow-hidden lg:rounded-[2.25rem] lg:bg-white lg:shadow-[0_26px_76px_rgba(14,71,100,0.12)]">
-          <header className="bg-gradient-to-r from-[#c7dde2] via-[#c9d7e5] to-[#ddd3e7] px-4 py-4 lg:rounded-t-[2.25rem]">
-            <div className="flex items-start justify-between lg:items-center">
+      <div className="mx-auto min-h-screen max-w-[1280px] lg:grid lg:grid-cols-[286px_1fr] lg:gap-7 lg:px-8 lg:py-8">
+        <aside className="sticky top-8 hidden h-[calc(100vh-4rem)] flex-col overflow-hidden rounded-[2rem] bg-white p-5 shadow-[0_24px_70px_rgba(14,71,100,0.12)] ring-1 ring-white/80 lg:flex">
+          <div className="rounded-[1.5rem] bg-gradient-to-br from-[#0ea9d1] via-[#467fd2] to-[#f35ca8] p-4 text-white shadow-[0_18px_42px_rgba(21,168,211,0.22)]">
+            <div className="flex items-center gap-3">
+              <img
+                src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=160&q=80"
+                alt="Alex driver profile"
+                className="h-14 w-14 rounded-full border-2 border-white object-cover shadow-md"
+              />
+              <div>
+                <p className="text-[11px] font-black uppercase tracking-[0.16em] text-white/70">Driver Profile</p>
+                <h2 className="mt-1 text-lg font-black leading-tight">Alex Carter</h2>
+                <p className="mt-1 text-xs font-bold text-white/80">ID: DRV-2481</p>
+              </div>
+            </div>
+
+            <div className="mt-5 grid grid-cols-2 gap-3">
+              <div className="rounded-2xl bg-white/16 p-3">
+                <p className="text-[10px] font-black uppercase tracking-[0.14em] text-white/70">Rating</p>
+                <p className="mt-1 text-lg font-black">4.9</p>
+              </div>
+              <div className="rounded-2xl bg-white/16 p-3">
+                <p className="text-[10px] font-black uppercase tracking-[0.14em] text-white/70">Trips</p>
+                <p className="mt-1 text-lg font-black">242</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-5 rounded-[1.4rem] bg-[#f3fbfc] p-4 ring-1 ring-cyan-100/80">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-[11px] font-black uppercase tracking-[0.14em] text-[#16879a]">Status</p>
+                <p className="mt-1 text-sm font-black text-slate-950">Online now</p>
+              </div>
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+                <ShieldCheck className="h-5 w-5" strokeWidth={2.3} />
+              </span>
+            </div>
+            <div className="mt-4 h-2 rounded-full bg-white shadow-inner">
+              <div className="h-2 w-[86%] rounded-full bg-gradient-to-r from-[#0ea9d1] to-[#18b98a]" />
+            </div>
+            <p className="mt-3 text-xs font-bold text-slate-500">Profile completion 86%</p>
+          </div>
+
+          <nav className="mt-6 space-y-2">
+            {sidebarLinks.map((item) => (
+              <button
+                key={item.label}
+                type="button"
+                onClick={() => router.push(item.href)}
+                className={`flex h-12 w-full items-center gap-3 rounded-2xl px-4 text-left text-sm font-black transition ${
+                  item.active
+                    ? 'bg-cyan-50 text-[#08afd0] shadow-[0_10px_24px_rgba(0,169,203,0.08)]'
+                    : 'text-slate-500 hover:bg-slate-50 hover:text-slate-950'
+                }`}
+              >
+                <item.icon className="h-5 w-5" strokeWidth={2.2} />
+                {item.label}
+              </button>
+            ))}
+          </nav>
+
+          <div className="mt-auto space-y-3">
+            <div className="rounded-[1.25rem] border border-slate-100 bg-slate-50 p-4">
+              <div className="flex items-center gap-3">
+                <CalendarDays className="h-5 w-5 text-[#08afd0]" strokeWidth={2.2} />
+                <div>
+                  <p className="text-xs font-black text-slate-950">Shift</p>
+                  <p className="text-xs font-bold text-slate-500">8:00 AM - 6:00 PM</p>
+                </div>
+              </div>
+            </div>
+            <button
+              type="button"
+              className="flex h-12 w-full items-center justify-center gap-2 rounded-2xl border border-slate-200 text-sm font-black text-slate-500 transition hover:border-red-100 hover:bg-red-50 hover:text-red-500"
+            >
+              <LogOut className="h-5 w-5" strokeWidth={2.2} />
+              Sign out
+            </button>
+          </div>
+        </aside>
+
+        <section className="relative overflow-hidden lg:hidden">
+          <header className="bg-gradient-to-r from-[#c7dde2] via-[#c9d7e5] to-[#ddd3e7] px-4 py-4">
+            <div className="flex items-start justify-between">
               <div className="flex items-center gap-3">
               <img
                 src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=160&q=80"
@@ -80,7 +177,7 @@ export default function DriverHomePage() {
 
               <button
                 type="button"
-                onClick={() => router.push('/profile')}
+                onClick={() => router.push('/driver-profile')}
                 className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/50 text-[#00a9cb] shadow-[0_10px_24px_rgba(255,255,255,0.18)] transition hover:bg-white/70"
               >
                 <Bell className="h-5 w-5" strokeWidth={2.2} />
@@ -94,11 +191,6 @@ export default function DriverHomePage() {
               </h1>
             </div>
 
-            <div className="hidden lg:flex lg:absolute lg:inset-x-0 lg:top-4 lg:justify-center">
-              <h1 className="text-[24px] font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#00a9cb] via-[#4388cf] to-[#eb72d0]">
-                ORDERKRO
-              </h1>
-            </div>
           </header>
 
           <div className="h-[3px] bg-[#1d5f94]" />
@@ -111,6 +203,30 @@ export default function DriverHomePage() {
         </section>
 
         <section className="-mt-[124px] px-4 pb-28 lg:mt-0 lg:px-0 lg:pb-0">
+          <section className="delivery-card mb-7 rounded-[1.75rem] bg-white p-5 shadow-[0_18px_42px_rgba(14,71,100,0.10)] ring-1 ring-white/80 lg:hidden">
+            <div className="flex items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <img
+                  src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=160&q=80"
+                  alt="Alex driver profile"
+                  className="h-14 w-14 rounded-full object-cover shadow-md"
+                />
+                <div>
+                  <p className="text-[11px] font-black uppercase tracking-[0.16em] text-[#16879a]">Driver Profile</p>
+                  <h2 className="mt-1 text-lg font-black text-slate-950">Alex Carter</h2>
+                  <p className="mt-1 text-xs font-bold text-slate-500">4.9 rating | 242 trips</p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => router.push('/driver-profile')}
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-cyan-50 text-[#08afd0]"
+              >
+                <UserRound className="h-5 w-5" strokeWidth={2.2} />
+              </button>
+            </div>
+          </section>
+
           <section className="delivery-card rounded-[2rem] bg-[linear-gradient(180deg,rgba(180,204,229,0.92)_0%,rgba(255,255,255,0.98)_62%)] p-7 shadow-[0_22px_58px_rgba(18,73,104,0.14)] ring-1 ring-white/80 backdrop-blur-sm">
             <div className="flex items-start justify-between gap-4">
               <div>
@@ -303,6 +419,17 @@ export default function DriverHomePage() {
             <button
               key={item.label}
               type="button"
+              onClick={() => {
+                if (item.label === 'Orders') {
+                  router.push('/driver-orders');
+                }
+                if (item.label === 'Payouts') {
+                  router.push('/driver-earnings');
+                }
+                if (item.label === 'Account') {
+                  router.push('/driver-profile');
+                }
+              }}
               className={`delivery-card rounded-[1.2rem] px-2 py-3 text-center transition ${item.active ? 'bg-cyan-50 text-[#08afd0]' : 'text-slate-400'}`}
               style={{ animationDelay: `${520 + index * 60}ms` }}
             >

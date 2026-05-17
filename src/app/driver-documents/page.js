@@ -9,13 +9,16 @@ import {
   FileCheck2,
   FileText,
   Headset,
+  History,
   House,
   IdCard,
   LogOut,
+  MapPinned,
   Settings,
   ShieldCheck,
   Upload,
   UserRound,
+  Wallet,
   WalletCards,
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
@@ -28,6 +31,9 @@ const sidebarLinks = [
   { label: 'Earnings', icon: WalletCards, href: '/driver-earnings' },
   { label: 'Payouts', icon: CreditCard, href: '/driver-payouts' },
   { label: 'Orders', icon: ClipboardList, href: '/driver-orders' },
+  { label: 'History', icon: History, href: '/driver-history' },
+  { label: 'Wallet', icon: Wallet, href: '/driver-wallet' },
+  { label: 'Zones', icon: MapPinned, href: '/driver-zones' },
   { label: 'Settings', icon: Settings, href: '/driver-settings' },
 ];
 

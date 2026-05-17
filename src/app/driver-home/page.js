@@ -9,6 +9,7 @@ import {
   CreditCard,
   FileText,
   Headset,
+  History,
   House,
   Medal,
   Route,
@@ -18,8 +19,10 @@ import {
   ChevronRight,
   TimerReset,
   MapPin,
+  MapPinned,
   Bike,
   ShieldCheck,
+  Wallet,
   WalletCards,
   CalendarDays,
   Settings,
@@ -54,6 +57,9 @@ const sidebarLinks = [
   { label: 'Earnings', icon: WalletCards, href: '/driver-earnings' },
   { label: 'Payouts', icon: CreditCard, href: '/driver-payouts' },
   { label: 'Orders', icon: ClipboardList, href: '/driver-orders' },
+  { label: 'History', icon: History, href: '/driver-history' },
+  { label: 'Wallet', icon: Wallet, href: '/driver-wallet' },
+  { label: 'Zones', icon: MapPinned, href: '/driver-zones' },
   { label: 'Settings', icon: Settings, href: '/driver-settings' },
 ];
 

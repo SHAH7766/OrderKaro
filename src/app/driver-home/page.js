@@ -24,9 +24,7 @@ import {
   ShieldCheck,
   Wallet,
   WalletCards,
-  CalendarDays,
   Settings,
-  LogOut,
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import Navbar from '../../components/Navbar';
@@ -83,56 +81,50 @@ export default function DriverHomePage() {
     <Navbar />
     <main className="min-h-screen bg-[linear-gradient(180deg,#edf7f8_0%,#f7fbfb_42%,#eef8f9_100%)] text-slate-950">
       <div className="mx-auto min-h-screen max-w-[1280px] lg:grid lg:grid-cols-[286px_1fr] lg:gap-7 lg:px-8 lg:py-8">
-        <aside className="sticky top-8 hidden h-[calc(100vh-4rem)] flex-col overflow-hidden rounded-[2rem] bg-white p-5 shadow-[0_24px_70px_rgba(14,71,100,0.12)] ring-1 ring-white/80 lg:flex">
-          <div className="rounded-[1.5rem] bg-gradient-to-br from-[#0ea9d1] via-[#467fd2] to-[#f35ca8] p-4 text-white shadow-[0_18px_42px_rgba(21,168,211,0.22)]">
+        <aside className="sticky top-8 hidden h-[calc(100vh-4rem)] flex-col overflow-hidden rounded-[2rem] bg-white p-4 shadow-[0_24px_70px_rgba(14,71,100,0.12)] ring-1 ring-white/80 lg:flex">
+          <div className="rounded-[1.35rem] bg-gradient-to-br from-[#0ea9d1] via-[#467fd2] to-[#f35ca8] p-3 text-white shadow-[0_18px_42px_rgba(21,168,211,0.22)]">
             <div className="flex items-center gap-3">
               <img
                 src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=160&q=80"
                 alt="Alex driver profile"
-                className="h-14 w-14 rounded-full border-2 border-white object-cover shadow-md"
+                className="h-12 w-12 rounded-full border-2 border-white object-cover shadow-md"
               />
               <div>
-                <p className="text-[11px] font-black uppercase tracking-[0.16em] text-white/70">Driver Profile</p>
-                <h2 className="mt-1 text-lg font-black leading-tight">Alex Carter</h2>
+                <p className="text-[10px] font-black uppercase tracking-[0.14em] text-white/70">Driver Profile</p>
+                <h2 className="mt-0.5 text-base font-black leading-tight">Alex Carter</h2>
                 <p className="mt-1 text-xs font-bold text-white/80">ID: DRV-2481</p>
               </div>
             </div>
 
-            <div className="mt-5 grid grid-cols-2 gap-3">
-              <div className="rounded-2xl bg-white/16 p-3">
-                <p className="text-[10px] font-black uppercase tracking-[0.14em] text-white/70">Rating</p>
-                <p className="mt-1 text-lg font-black">4.9</p>
+            <div className="mt-3 grid grid-cols-2 gap-2">
+              <div className="rounded-xl bg-white/16 px-3 py-2">
+                <p className="text-[9px] font-black uppercase tracking-[0.12em] text-white/70">Rating</p>
+                <p className="text-base font-black">4.9</p>
               </div>
-              <div className="rounded-2xl bg-white/16 p-3">
-                <p className="text-[10px] font-black uppercase tracking-[0.14em] text-white/70">Trips</p>
-                <p className="mt-1 text-lg font-black">242</p>
+              <div className="rounded-xl bg-white/16 px-3 py-2">
+                <p className="text-[9px] font-black uppercase tracking-[0.12em] text-white/70">Trips</p>
+                <p className="text-base font-black">242</p>
               </div>
             </div>
           </div>
 
-          <div className="mt-5 rounded-[1.4rem] bg-[#f3fbfc] p-4 ring-1 ring-cyan-100/80">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-[11px] font-black uppercase tracking-[0.14em] text-[#16879a]">Status</p>
-                <p className="mt-1 text-sm font-black text-slate-950">Online now</p>
-              </div>
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
-                <ShieldCheck className="h-5 w-5" strokeWidth={2.3} />
-              </span>
+          <div className="mt-3 flex items-center justify-between rounded-[1.1rem] bg-[#f3fbfc] px-3 py-2 ring-1 ring-cyan-100/80">
+            <div>
+              <p className="text-[10px] font-black uppercase tracking-[0.14em] text-[#16879a]">Status</p>
+              <p className="text-sm font-black text-slate-950">Online now</p>
             </div>
-            <div className="mt-4 h-2 rounded-full bg-white shadow-inner">
-              <div className="h-2 w-[86%] rounded-full bg-gradient-to-r from-[#0ea9d1] to-[#18b98a]" />
-            </div>
-            <p className="mt-3 text-xs font-bold text-slate-500">Profile completion 86%</p>
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+              <ShieldCheck className="h-5 w-5" strokeWidth={2.3} />
+            </span>
           </div>
 
-          <nav className="mt-6 space-y-2">
+          <nav className="mt-3 space-y-1">
             {sidebarLinks.map((item) => (
               <button
                 key={item.label}
                 type="button"
                 onClick={() => router.push(item.href)}
-                className={`flex h-12 w-full items-center gap-3 rounded-2xl px-4 text-left text-sm font-black transition ${
+                className={`flex h-8 w-full items-center gap-3 rounded-xl px-4 text-left text-sm font-black transition ${
                   item.active
                     ? 'bg-cyan-50 text-[#08afd0] shadow-[0_10px_24px_rgba(0,169,203,0.08)]'
                     : 'text-slate-500 hover:bg-slate-50 hover:text-slate-950'
@@ -143,25 +135,6 @@ export default function DriverHomePage() {
               </button>
             ))}
           </nav>
-
-          <div className="mt-auto space-y-3">
-            <div className="rounded-[1.25rem] border border-slate-100 bg-slate-50 p-4">
-              <div className="flex items-center gap-3">
-                <CalendarDays className="h-5 w-5 text-[#08afd0]" strokeWidth={2.2} />
-                <div>
-                  <p className="text-xs font-black text-slate-950">Shift</p>
-                  <p className="text-xs font-bold text-slate-500">8:00 AM - 6:00 PM</p>
-                </div>
-              </div>
-            </div>
-            <button
-              type="button"
-              className="flex h-12 w-full items-center justify-center gap-2 rounded-2xl border border-slate-200 text-sm font-black text-slate-500 transition hover:border-red-100 hover:bg-red-50 hover:text-red-500"
-            >
-              <LogOut className="h-5 w-5" strokeWidth={2.2} />
-              Sign out
-            </button>
-          </div>
         </aside>
 
         <section className="relative overflow-hidden lg:hidden">
